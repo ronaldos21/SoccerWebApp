@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "./Menu"; // Import the Menu component
 
+
 const App = () => {
   return (
     <div className="font-sans antialiased">
@@ -25,25 +26,66 @@ const App = () => {
 
       {/* Features Section */}
       <section id="services" className="py-20 bg-gray-50">
-        <div className="container mx-auto text-center px-6">
+        <div className="container mx-auto text-center px-200">
           <h2 className="text-4xl font-bold mb-12 text-gray-800">Our Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-12">
+            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105 m-4" style={{ width: '130%' }}>
+              <a href="#">
+                <img class="p-8 rounded-t-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1200px-Soccerball.svg.png" alt="product image" />
+              </a>
               <h3 className="text-2xl font-semibold text-gray-800">Feature 1</h3>
               <p className="mt-4 text-gray-600">
                 This is a brief description of Feature 1. It helps with improving productivity.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+        
+            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105 m-4" style={{ width: '130%' }}>
+              <a href="#">
+                <img class="p-8 rounded-t-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1200px-Soccerball.svg.png" alt="product image" />
+              </a>
+              <h3 className="text-2xl font-semibold text-gray-800">Feature 3</h3>
+              <p className="mt-4 text-gray-600">
+                This is a brief description of Feature 3. It provides insights into your processes.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105 m-4" style={{ width: '130%' }}>
+              <a href="#">
+                <img class="p-8 rounded-t-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1200px-Soccerball.svg.png" alt="product image" />
+              </a>
               <h3 className="text-2xl font-semibold text-gray-800">Feature 2</h3>
               <p className="mt-4 text-gray-600">
                 This is a brief description of Feature 2. It streamlines your workflow.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
-              <h3 className="text-2xl font-semibold text-gray-800">Feature 3</h3>
+
+            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105 m-4" style={{ width: '130%'}}>
+              <a href="#">
+                <img class="p-8 rounded-t-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1200px-Soccerball.svg.png" alt="product image" />
+              </a>
+              <h3 className="text-2xl font-semibold text-gray-800">Feature 2</h3>
               <p className="mt-4 text-gray-600">
-                This is a brief description of Feature 3. It provides insights into your processes.
+                This is a brief description of Feature 2. It streamlines your workflow.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105 m-4" style={{ width: '130%' }}>
+              <a href="#">
+                <img class="p-8 rounded-t-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1200px-Soccerball.svg.png" alt="product image" />
+              </a>
+              <h3 className="text-2xl font-semibold text-gray-800">Feature 2</h3>
+              <p className="mt-4 text-gray-600">
+                This is a brief description of Feature 2. It streamlines your workflow.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105 m-4" style={{ width: '130%' }}>
+              <a href="#">
+                <img class="p-8 rounded-t-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1200px-Soccerball.svg.png" alt="product image" />
+              </a>
+              <h3 className="text-2xl font-semibold text-gray-800">Feature 2</h3>
+              <p className="mt-4 text-gray-600">
+                This is a brief description of Feature 2. It streamlines your workflow.
               </p>
             </div>
           </div>

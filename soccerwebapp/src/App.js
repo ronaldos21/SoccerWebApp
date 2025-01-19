@@ -59,30 +59,33 @@ const App = () => {
   );
 
   // Remove duplicates after filtering (if necessary)
-  const uniqueFilteredFeatures = [...new Set(filteredFeatures.map((a) => a.title))].map(
-    (title) => filteredFeatures.find((a) => a.title === title)
-  );
+  const uniqueFilteredFeatures = [
+    ...new Set(filteredFeatures.map((a) => a.title)),
+  ].map((title) => filteredFeatures.find((a) => a.title === title));
+
+  // Dynamically adjust slidesToShow based on the number of filtered features
+  const slidesToShow = Math.min(uniqueFilteredFeatures.length, 3);
 
   // Slider settings
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: slidesToShow > 1, // Infinite scroll only if more than one slide
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: slidesToShow,
+    slidesToScroll: slidesToShow,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: Math.min(uniqueFilteredFeatures.length, 2),
+          slidesToScroll: Math.min(uniqueFilteredFeatures.length, 2),
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: Math.min(uniqueFilteredFeatures.length, 1),
+          slidesToScroll: Math.min(uniqueFilteredFeatures.length, 1),
         },
       },
     ],
@@ -135,27 +138,10 @@ const App = () => {
               Search
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg>
-              </div>
               <input
                 type="search"
                 id="default-search"
-                className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Search Teams...."
                 required
                 value={searchTerm}
@@ -167,13 +153,23 @@ const App = () => {
           <div className="relative">
             <Slider {...settings} ref={sliderRef}>
               {uniqueFilteredFeatures.map((feature, index) => (
-                <div key={index} className="p-4">
-                  <div className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                <div
+                  key={index}
+                  className="flex justify-center items-center p-4"
+                >
+                  <div
+                    className="bg-white p-8 rounded-lg shadow-lg transition-all transform hover:scale-105 mx-auto"
+                    style={{ width: "300px", height: "400px" }}
+                  >
                     <a href="#">
                       <img
-                        className="p-8 rounded-t-lg"
+                        className="p-8 rounded-t-lg mx-auto"
                         src={feature.image}
                         alt={`Image for ${feature.title}`}
+                        style={{
+                          maxHeight: "150px",
+                          objectFit: "contain",
+                        }}
                       />
                     </a>
                     <h3 className="text-2xl font-semibold text-gray-800">
@@ -188,7 +184,7 @@ const App = () => {
             {/* Custom Slider Navigation Buttons */}
             <button
               onClick={goToPreviousSlide}
-              className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-gray-600 to-gray-900 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:from-gray-500 hover:to-gray-800"
+              className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-gray-600 to-gray-900 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110"
               aria-label="Previous Slide"
             >
               <svg
@@ -208,7 +204,7 @@ const App = () => {
             </button>
             <button
               onClick={goToNextSlide}
-              className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-gray-600 to-gray-900 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:from-gray-500 hover:to-gray-800"
+              className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-gray-600 to-gray-900 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110"
               aria-label="Next Slide"
             >
               <svg

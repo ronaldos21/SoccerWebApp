@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logo from './assets/logo.png';
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -6,9 +7,17 @@ const Menu = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="flex items-center justify-between">
-        <div className="text-white text-xl font-bold">MyApp</div>
+    <nav className="bg-gray-800 p-1" style={{"padding-block-end":"0px"}}>
+     <div className="flex items-center justify-between" style={{"margin-top":"-18px"}}>
+     <div className="flex items-center min-h-[1px] w-full p-6 rounded-lg p-6 lg:overflow-visible">
+        <img
+          className="object-cover object-center rounded-full h-10 w-10 mr-4"
+          src={logo}
+          alt="logo"
+        />
+  <     span className="text-white text-xl font-bold">SoccerQuiz</span>
+      </div>
+
 
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="text-white">
@@ -29,7 +38,7 @@ const Menu = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex space-x-4">
+        <div className="hidden lg:flex space-x-4"style={{ padding: "2%" }} >
           <a href="#home" className="text-white hover:text-blue-500">
             Home
           </a>

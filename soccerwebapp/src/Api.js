@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// TeamStatistics Component
 const TeamStatistics = () => {
   const [teamData, setTeamData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -105,6 +106,17 @@ const TeamStatistics = () => {
   );
 };
 
-export default TeamStatistics;
+// App Component
+const App = () => {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="w-full max-w-4xl p-6">
+        <TeamStatistics />
+      </div>
+    </div>
+  );
+};
+
+export default App;
 
 

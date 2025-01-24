@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import Slider from "react-slick";
+import React, { useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Menu from "./Menu";
@@ -8,7 +7,6 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [teamData, setTeamData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const sliderRef = useRef(null);
 
   const handleSearch = async () => {
     if (!searchTerm) return;
@@ -47,16 +45,16 @@ const App = () => {
       <Menu />
       <section className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white text-center py-40">
         <h1 className="text-5xl font-extrabold leading-tight mb-4">
-          Welcome to MyApp!
+          Welcome to SoccerQuiz!
         </h1>
         <p className="text-lg md:text-2xl mb-6">
-          A modern solution for all your needs. Discover amazing features and more.
+            A modern site for soccer fans. Discover how big of a fan you are of your team.
         </p>
         <a
           href="#services"
           className="inline-block bg-yellow-500 text-gray-800 py-3 px-6 rounded-full text-lg transition transform hover:scale-105 hover:bg-yellow-400"
         >
-          Explore Our Services
+          Explore Our Teams Availables
         </a>
       </section>
 
@@ -104,7 +102,7 @@ const App = () => {
                     {teamData.team.founded || "N/A"}
                   </p>
                   <p>
-                    <span className="font-semibold">Venue Name:</span>{" "}
+                    <span className="font-semibold">Stadium:</span>{" "}
                     {teamData.venue?.name || "N/A"}
                   </p>
                   <p>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import logo from "../assets/logo.png"; // Import the logo image
+import logoPic from "../assets/logo.png";
 
 const Menu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,17 +10,17 @@ const Menu = () => {
     return (
         <nav className="bg-green-700 p-4">
             {/* Top Bar */}
-            <div className="flex items-center justify-between" style={{ "margin-top": "-18px" }}>
-                <div className="flex items-center min-h-[1px] w-full p-6 rounded-lg p-6 lg:overflow-visible">
+            <div className="flex items-center justify-between" >
+                <div className="text-white text-xl font-bold flex items-center">
                     <img
                         className="object-cover object-center rounded-full h-10 w-10 mr-4"
-                        src={logo}
+                        src={logoPic}
                         alt="logo"
                     />
                     <     span className="text-white text-xl font-bold">SoccerQuiz</span>
                 </div>
 
-
+                {/* Hamburger Menu for Small Screens */}
                 <div className="lg:hidden">
                     <button onClick={toggleMenu} className="text-white">
                         <svg

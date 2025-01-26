@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Menu from "/Users/kevingodoy/Documents/GitHub/SoccerWebApp/soccerwebapp/src/Components/Menu.js";
+import Menu from "../Components/Menu";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -114,6 +115,9 @@ const HomePage = () => {
                     {teamData.venue?.capacity || "N/A"}
                   </p>
                 </div>
+                <Link to="/quiz" className="block text-white hover:text-yellow-400">
+                <button type="button" class="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Start Quiz</button>
+                </Link>
               </div>
             </div>
           )}

@@ -1,15 +1,3 @@
-/*import OddsComponent from "./App";
-
-function App1() {
-  return (
-    <div className="App">
-      <OddsComponent />
-    </div>
-  );
-}
-
-export default App1;*/
-
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuizPage from "./Pages/QuizPage";
